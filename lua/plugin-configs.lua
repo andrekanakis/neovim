@@ -8,6 +8,11 @@ CONFIG["fzf-lua"] = {
   },
 }
 
+CONFIG["supermaven-nvim"] = {
+  log_level = "off",
+  ignore_filetypes = { "markdown" },
+}
+
 CONFIG["ruff"] = {
   filetypes = { "python" },
   -- disable hover

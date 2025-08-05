@@ -5,11 +5,6 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- Native keymaps
-map('n', '<leader>o', ':update<CR> :source<CR>')    -- source file
-map({ 'n', 'v', 'x' }, '<leader>y', '+y<CR>')
-map({ 'n', 'v', 'x' }, '<leader>d', '+d<CR>')
-map({ 'n', 'v', 'x' }, '<leader>s', ':e #<CR>')
-map({ 'n', 'v', 'x' }, '<leader>S', ':sf #<CR>')
 map('n', 'n', 'nzzzv', opts)    -- Keep cursor in middle when jumping forward
 map('n', 'N', 'Nzzzv', opts)    -- Keep cursor in middle when jumping backward
 map('n', '<C-d>', '<C-d><zz', opts)   -- Cursor in middle when jumping half page down
@@ -18,20 +13,27 @@ map('n', '<C-h>', '<C-w>h', opts)   -- Jumping to left window
 map('n', '<C-j>', '<C-w>j', opts)   -- Jumping to bottom window
 map('n', '<C-k>', '<C-w>k', opts)   -- Jumping to top window
 map('n', '<C-l>', '<C-w>l', opts)   -- Jumping to right window
-map('n', '<leader>sv', ':vsplit<CR>', { desc = "Vertical split" })    -- Splitting vertical
-map('n', '<leader>sh', ':split<CR>', { desc = "Horizontal split" })   -- Splitting horizontally
-map('n', '<leader>bp', ':bp<CR>', { desc = "Previous buffer" })   -- Buffer Previous
-map('n', '<leader>bn', ':bn<CR>', { desc = "Next buffer"})   -- Buffer Next
+map('n', '<leader>sv', ':vsplit<CR>', { desc = "[V]ertical" })    -- Splitting vertical
+map('n', '<leader>sh', ':split<CR>', { desc = "[H]orizontal" })   -- Splitting horizontally
+map('n', '<leader>bp', ':bp<CR>', { desc = "[P]revious" })   -- Buffer Previous
+map('n', '<leader>bn', ':bn<CR>', { desc = "[N]ext"})   -- Buffer Next
 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Plugin keymaps
-map('n', '<leader>f', ':Pick files<CR>')    -- mini.pick, files in current dir
-map('n', '<leader>h', ':Pick help<CR>')   -- mini.pack search help
-map('n', '<leader>e', ':Oil<CR>')   -- oil.nvim buffer file dir
-map('n', '<leader>lf', vim.lsp.buf.format)    -- format with lsp
-map({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' }) -- Code Action
-map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename" })   -- Rename
-map('n', '<leader>gD', vim.lsp.buf.declaration, { desc = "Goto Declaration" })    -- Goto Declaration
-map('n', '<leader>gd', vim.lsp.buf.definition, { desc = "Goto Definition" })    -- Goto Definition
-map('n', '<leader>/', ':FzfLua blines<CR>', { desc = "FzfLua current buffer" })   -- fzf current buffer
+map('n', '<leader>fh', ':Pick help<CR>', { desc = "[H]elp"})   -- mini.pack search help
+map('n', '<leader>fe', ':Oil<CR>', { desc = "[E]xplore"})   -- oil.nvim buffer file dir
+map('n', '<leader>lf', vim.lsp.buf.format, { desc = "[F]ormat" })    -- format with lsp
+map({ 'n', 'x' }, '<leader>la', vim.lsp.buf.code_action, { desc = '[A]ction' }) -- Code Action
+map('n', '<leader>lr', vim.lsp.buf.rename, { desc = "[R]ename" })   -- Rename
+map('n', '<leader>lD', vim.lsp.buf.declaration, { desc = "[D]eclaration" })    -- Goto Declaration
+map('n', '<leader>ld', vim.lsp.buf.definition, { desc = "[d]efinition" })    -- Goto Definition
+map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find<CR>', { desc = "Search Buffer" })
+map('n', '<leader>fg', ':Telescope live_grep<CR>', { desc = "[G]rep" })
+map('n', '<leader>q', ':Telescope diagnostics<CR>', { desc = "[Q]uickfix Diagnostics" })
+map('n', '<leader>ff', ':Telescope find_files<CR>', { desc = "[F]ind [F]iles" })
+
+
+-- Unused keybinds
+-- map('n', '<leader>/', ':FzfLua blines<CR>', { desc = "FzfLua current buffer" })   -- fzf current buffer
+-- map('n', '<leader>f', ':Pick files<CR>')    -- mini.pick, files in current dir
+-- map('n', '<leader>fqn', vim.diagnostic.setloclist, { desc = 'Diagnostic [Q]uickfix [N]ative' })
