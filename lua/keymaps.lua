@@ -35,5 +35,5 @@ map('n', '<leader>ff', ':Telescope find_files<CR>', { desc = "[F]ind [F]iles" })
 
 -- Unused keybinds
 -- map('n', '<leader>/', ':FzfLua blines<CR>', { desc = "FzfLua current buffer" })   -- fzf current buffer
--- map('n', '<leader>f', ':Pick files<CR>')    -- mini.pick, files in current dir
+map('n', '<leader>fp', ':Pick files<CR>')    -- mini.pick, files in current dir
 -- map('n', '<leader>fqn', vim.diagnostic.setloclist, { desc = 'Diagnostic [Q]uickfix [N]ative' })

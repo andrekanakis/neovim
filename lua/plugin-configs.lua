@@ -10,7 +10,7 @@ CONFIG["fzf-lua"] = {
 
 CONFIG["supermaven-nvim"] = {
   log_level = "off",
-  ignore_filetypes = { "markdown" },
+  ignore_filetypes = { ""}
 }
 
 CONFIG["ruff"] = {
